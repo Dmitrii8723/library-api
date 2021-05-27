@@ -14,8 +14,8 @@ const {
   
 
 app.use('/graphql', expressGraphQL({
-    schema: schema, 
-    graphiql: true
- }))
+      schema: schema, 
+      graphiql: true,
+   }));
 
 app.listen(5000, () => console.log('Server Running'));
