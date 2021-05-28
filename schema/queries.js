@@ -6,27 +6,30 @@ const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   type: "Query",
   fields: {
-      // resources: {
-      //   type: new GraphQLList(ResourcesType),
-      //   args: { type: { type: GraphQLID }, video: { type: GraphQLBoolean }},
-      //   resolve(parentValue, args) {
-      //     const query = `SELECT * FROM resources WHERE type=$1 AND video=$2`;
-
-      //     console.log('args', args)
-      //     const values = [args];
-      //     return db
-      //       .many(query, values)
-      //       .then(res => res)
-      //       .catch(err => err);
-      //   }
-      // },
-      allResources: {
-        type: new GraphQLList(AllResourcesType),
+    allResources: {
+      type: new GraphQLList(AllResourcesType),
+      resolve(parentValue, args) {
+        const query = `SELECT * FROM resources`;
+        return db
+          .many(query)
+          .then(res => res)
+          .catch(err => err);
+      }
+    },
+      resources: {
+        type: new GraphQLList(ResourcesType),
+        args: { type: { type: GraphQLID }, video: { type: GraphQLBoolean }},
         resolve(parentValue, args) {
-          const query = `SELECT * FROM resources`;
+          // TODO: Find a way how to pass mulitple parameters
+          const query = `SELECT * FROM resources WHERE type=$1`;
+          const values = [args.type];
           return db
-            .many(query)
-            .then(res => res)
+            .many(query, values)
+            .then(res => {
+            return res.filter((item) => { 
+              if(item.video === args.video) return item;
+            }); 
+        })
             .catch(err => err);
         }
       }

@@ -1,18 +1,18 @@
 const graphql = require("graphql");
 const { GraphQLObjectType, GraphQLString, GraphQLBoolean } = graphql;
 
-  // const ResourcesType = new GraphQLObjectType({
-  //   name: "Resources",
-  //   type: "Query",
-  //   fields: {
-  //     id: { type: GraphQLString },
-  //     name: { type: GraphQLString },
-  //     resource_url: { type: GraphQLString },
-  //     cover_url: { type: GraphQLString },
-  //     video: { type: GraphQLBoolean },
-  //     type: { type: GraphQLString },
-  //   }
-  // });
+  const ResourcesType = new GraphQLObjectType({
+    name: "Resources",
+    type: "Query",
+    fields: {
+      id: { type: GraphQLString },
+      name: { type: GraphQLString },
+      resource_url: { type: GraphQLString },
+      cover_url: { type: GraphQLString },
+      video: { type: GraphQLBoolean },
+      type: { type: GraphQLString },
+    }
+  });
 
   const AllResourcesType = new GraphQLObjectType({
     name: "AllResources",
@@ -27,5 +27,5 @@ const { GraphQLObjectType, GraphQLString, GraphQLBoolean } = graphql;
     }
   });
 
-// exports.ResourcesType = ResourcesType;
+exports.ResourcesType = ResourcesType;
 exports.AllResourcesType = AllResourcesType;
