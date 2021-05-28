@@ -10,7 +10,7 @@ const {
 
  const schema = new GraphQLSchema({
     query,
-    // mutation,
+    mutation,
   });
   
   app.use(cors());

@@ -18,7 +18,7 @@ const RootQuery = new GraphQLObjectType({
     },
       resources: {
         type: new GraphQLList(ResourcesType),
-        args: { type: { type: GraphQLID }, video: { type: GraphQLBoolean }},
+        args: { type: { type: GraphQLString }, video: { type: GraphQLBoolean }},
         resolve(parentValue, args) {
           // TODO: Find a way how to pass mulitple parameters
           const query = `SELECT * FROM resources WHERE type=$1`;

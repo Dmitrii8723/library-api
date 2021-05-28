@@ -27,5 +27,18 @@ const { GraphQLObjectType, GraphQLString, GraphQLBoolean } = graphql;
     }
   });
 
+  const AddResourceType = new GraphQLObjectType({
+    name: "AddResource",
+    type: "Query",
+    fields: {
+      name: { type: GraphQLString },
+      resource_url: { type: GraphQLString },
+      cover_url: { type: GraphQLString },
+      video: { type: GraphQLBoolean },
+      type: { type: GraphQLString },
+    }
+  });
+
 exports.ResourcesType = ResourcesType;
 exports.AllResourcesType = AllResourcesType;
+exports.AddResourceType = AddResourceType;
