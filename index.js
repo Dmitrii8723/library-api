@@ -3,6 +3,7 @@ const app = express();
 const expressGraphQL = require('express-graphql').graphqlHTTP;
 const { query } = require('./schema/queries');
 const { mutation } = require('./schema/mutations');
+const cors = require('cors')
 const { 
     GraphQLSchema,
  } = require('graphql');
@@ -12,7 +13,7 @@ const {
     // mutation,
   });
   
-
+  app.use(cors());
 app.use('/graphql', expressGraphQL({
       schema: schema, 
       graphiql: true,
