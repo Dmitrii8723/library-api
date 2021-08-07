@@ -1,5 +1,5 @@
 npx sls config credentials \
     --provider aws \
     --profile serverlessUser \
-    --key "$AWS_PROFILE_KEY" \
-    --secret "$AWS_PROFILE_SECRET"
+    --key "$AWS_ACCESS_KEY_ID" \
+    --secret "$AWS_SECRET_ACCESS_KEY"
