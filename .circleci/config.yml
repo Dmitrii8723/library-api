@@ -1,11 +1,11 @@
 
 version: 2.1
 orbs:
-    node: circleci/node@4.1
+    node: circleci/node@1.1.6
 jobs:
     build-and-deploy:
         docker:
-            - image: circleci/node:14-stretch
+            - image: circleci/node:10.16.3
         steps:
             - checkout
             - run:
