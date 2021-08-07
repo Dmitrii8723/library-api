@@ -1,29 +1,28 @@
-# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
-version: 2.1
 
+version: 2.1
 orbs:
-  node: circleci/node@4.1
+    node: circleci/node@1.1.6
 jobs:
     build-and-deploy:
         docker:
-           - image: circleci/node:14
-        steps: 
+            - image: circleci/node:10.16.3
+        steps:
             - checkout
             - run:
-                command: sudo npm i -g serverless npm@latest
-            - run: 
-                command: npm install
+                  command: sudo npm i -g serverless npm@latest
             - run:
-                command: ./.circleci/install-credentials.sh
-            - run: 
-                command: sls deploy
+                  command: npm install
+            - run:
+                  command: ./.circleci/install-credentials.sh
+            - run:
+                  command: sls deploy
 
 workflows:
-  build-and-deploy:
-      jobs:
-          - build-and-deploy:
-                context: serverlessProject
-                filter:
-                    branches:
-                        only: 
-                            - master
+    build-and-deploy:
+        jobs:
+            - build-and-deploy:
+                  context: serverlessProject
+                  filters:
+                      branches:
+                          only:
+                              - master
