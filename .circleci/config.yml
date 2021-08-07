@@ -13,6 +13,8 @@ jobs:
                 command: sudo npm i -g serverless npm@latest
             - run: 
                 command: npm install
+            - run:
+                command: ./.circleci/install-credentials.sh
             - run: 
                 command: sls deploy
 
