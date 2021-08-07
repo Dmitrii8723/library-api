@@ -1,8 +1,9 @@
 service: library-api
 provider: 
-name: aws
-runtime: nodejs14x
-region: ap-southeast-2
+   name: aws
+   runtime: nodejs14x
+   region: ap-southeast-2
+
 custom:
     bucketName: myserverlessprojectuploadbucket-123123123
 
