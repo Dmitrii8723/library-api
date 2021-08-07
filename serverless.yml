@@ -20,4 +20,3 @@ functions:
            headers: 
               - Content-type
            allowCredentials: false
-   
