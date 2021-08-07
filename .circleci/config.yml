@@ -22,5 +22,6 @@ workflows:
       - build-and-deploy:
            context: serverlessProject
            filter:
-                branches: 
+                branches:
+                    only: 
                          - master
