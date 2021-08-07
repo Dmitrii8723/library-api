@@ -7,7 +7,7 @@ jobs:
     build-and-deploy:
         docker:
            - image: circleci/node:14
-           steps: 
+        steps: 
             - checkout
             - run:
                 command: sudo npm i -g serverless npm@latest
