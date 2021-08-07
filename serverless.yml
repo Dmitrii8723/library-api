@@ -9,16 +9,16 @@ custom:
 
 
 functions:
-graphql: 
-  handler: LIBRARY-API/index.default
-  timeout: 90
-  events:
-  - http:
-     path: graphql
-     method: post
-     cors:
-       origin: '*'
-       headers: 
-       - Content-type
-       allowCredentials: false
+  graphql: 
+    handler: LIBRARY-API/index.default
+    timeout: 90
+    events:
+     - http:
+         path: graphql
+         method: post
+         cors:
+           origin: '*'
+           headers: 
+              - Content-type
+           allowCredentials: false
    
