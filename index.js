@@ -4,6 +4,7 @@ const expressGraphQL = require('express-graphql').graphqlHTTP;
 const { query } = require('./schema/queries');
 const { mutation } = require('./schema/mutations');
 const cors = require('cors')
+const handler = () => {
 const { 
     GraphQLSchema,
  } = require('graphql');
@@ -19,6 +20,7 @@ app.use('/graphql', expressGraphQL({
       graphiql: true,
    }));
 
-const handler = app.listen(5000, () => console.log('Server Running'));
+app.listen(5000, () => console.log('Server Running'));
+}
 
 export default handler;
