@@ -23,4 +23,4 @@ app.use('/graphql', expressGraphQL({
 app.listen(5000, () => console.log('Server Running'));
 };
 
-export default handler;
+exports.handler = handler;
