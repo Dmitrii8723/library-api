@@ -10,7 +10,7 @@ custom:
 
 functions:
   graphql: 
-    handler: LIBRARY-API/index.default
+    handler: LIBRARY-API/index
     events:
      - http:
          path: graphql
